@@ -16,7 +16,7 @@ function Home() {
   }
 
   return (
-    <div className="-z-50 bg-slate-100 w-full py-24">
+    <div className="-z-50 bg-pink-50 w-full pt-16 pb-24">
       <div className="max-w-[1200px] mx-auto">
         <div>
           <h1 className="text-center text-4xl font-serif">

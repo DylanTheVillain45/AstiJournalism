@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const { MongoClient, ObjectId } = require('mongodb');
 const cors = require("cors");
@@ -7,15 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Middleware to parse JSON data
 
-const CONNECTION_STRING = process.env.MONGODB_URI;
+const CONNECTION_STRING = "mongodb+srv://Journalism:Journalism@astijournalism.scqs3.mongodb.net/?retryWrites=true&w=majority&appName=ASTIJournalism"
 const DATABASE = "ASTIJournalism";
 let database;
 
 // Connect to MongoDB and start the server
-MongoClient.connect(CONNECTION_STRING, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+MongoClient.connect(CONNECTION_STRING)
   .then((client) => {
     database = client.db(DATABASE);
     console.log("Successful connection to the database");

@@ -38,19 +38,28 @@ const ArticlePage = () => {
 
   const handleLike = async () => {
     try {
-      const response = await axios.patch(`http://localhost:5050/articles/${id}/like`);
+      const response = await axios.patch(
+        `http://localhost:5050/articles/${id}/like`
+      );
       if (response.status === 200) {
         // Update like count based on the response from the server
         setLikeCount(response.data.likes);
       }
     } catch (error) {
-      console.error("Error liking article:", error.response ? error.response.data : error);
+      console.error(
+        "Error liking article:",
+        error.response ? error.response.data : error
+      );
     }
   };
   return (
     <>
-      <div className="relative pt-16 pb-24 min-h-[75vh] bg-pink-50">
-        <img src={article.image} alt="" className="w-96 mx-auto mb-8" />
+      <div className="relative pt-12 pb-16 min-h-[75vh] bg-pink-50">
+        <img
+          src={article.image}
+          alt=""
+          className="w-96 mx-auto mb-8 border-black border-2 rounded-xl drop-shadow-xl"
+        />
         <div className="relative z-20 max-w-[400px] md:max-w-[540px] mx-auto font-serif">
           <h1 className="font-bold text-3xl text-center capitalize tracking-wider">
             {article.title}
@@ -69,8 +78,12 @@ const ArticlePage = () => {
           </div>
         </div>
         <hr className="border-[1.5px] border-black w-[80vw] mx-auto my-8" />
-        <div className="relative z-20 rounded-md whitespace-pre-wrap indent-8 max-w-[500px] sm:max-w-[600px] md:max-w-[800px] mx-auto text-justify leading-10 text-lg font-serif">
-          {article.content}
+        <div className="relative z-20 rounded-md whitespace-pre-wrap indent-8 max-w-[500px] sm:max-w-[600px] md:max-w-[800px] mx-auto text-justify leading-10 text-md md:text-xl font-serif px-8">
+          {article.content.split("\n").map((paragraph, index) => (
+            <p key={index} className="indent-8 mt-4">
+              {paragraph}
+            </p>
+          ))}
         </div>
         <div>{article.data}</div>
       </div>

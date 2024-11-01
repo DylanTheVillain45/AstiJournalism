@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 const team = [
   {
     name: "Mr. Long",
@@ -62,18 +62,21 @@ const team = [
 
 const About = () => {
   return (
-    <div className='min-h-screen text-center px-8 py-20 mx-auto'>
-      <h1 className='text-4xl underline font-serif mb-12'>Meet Our Team</h1>
-      <div className='grid md:grid-cols-2 gap-12'>
+    <div className="min-h-screen text-center px-8 py-20 mx-auto">
+      <h1 className="text-4xl underline font-serif mb-12">Meet Our Team</h1>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:max-w-[900px] max-w-[600px] mx-auto">
         {team.map((article, index) => (
-          <div key={index} className='p-8  bg-beige border-2 rounded-xl border-black '>
-            <h1 className='text-2xl font-serif underline mb-8'>{article.name}</h1>
-            <p className='text-xl opacity-60'>{article.blurb}</p>
+          <div
+            className="max-w-80 mx-auto bg-beige border-2 rounded-xl border-black px-8 py-4"
+            key={index}
+          >
+            <h1 className="underline text-2xl font-serif mb-4">{article.name}</h1>
+            <p className="text-xl opacity-60">{article.blurb}</p>
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
